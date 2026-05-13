@@ -1,0 +1,104 @@
+[
+  {
+    "id": "tc01_coop_fps_under_20",
+    "message": "I have $20 to spend. I love co-op FPS games and I already play Apex Legends and Left 4 Dead.",
+    "expect": {
+      "must_recommend_any_of": ["deep_rock_galactic", "borderlands_2", "left_4_dead_2"],
+      "must_not_recommend": ["cyberpunk_2077", "baldurs_gate_3", "elden_ring", "factorio"],
+      "max_price_for_buy": 20.0,
+      "expected_verdict_for": {"deep_rock_galactic": "Buy", "borderlands_2": "Buy"}
+    }
+  },
+  {
+    "id": "tc02_hades_target_price_wait",
+    "message": "I'm tracking Hades. My budget is $25 but my target price is $15. I love single-player roguelikes.",
+    "expect": {
+      "must_recommend_any_of": ["hades"],
+      "expected_verdict_for": {"hades": "Wait"},
+      "must_mention_keywords": ["target", "12.49"]
+    }
+  },
+  {
+    "id": "tc03_no_results_above_budget",
+    "message": "I have $5 and I want a brand new AAA open world RPG.",
+    "expect": {
+      "must_not_recommend_buy_above": 5.0
+    }
+  },
+  {
+    "id": "tc04_singleplayer_only",
+    "message": "Recommend me a single-player only story game. Budget $15.",
+    "expect": {
+      "must_recommend_any_of": ["disco_elysium", "celeste", "hollow_knight", "the_witcher_3"],
+      "must_not_recommend": ["rainbow_six_siege"],
+      "max_price_for_buy": 15.0
+    }
+  },
+  {
+    "id": "tc05_multiplayer_required",
+    "message": "I want a multiplayer-required game under $10 to play with 4 friends.",
+    "expect": {
+      "must_recommend_any_of": ["left_4_dead_2", "borderlands_2", "rainbow_six_siege", "deep_rock_galactic", "terraria"],
+      "max_price_for_buy": 10.0
+    }
+  },
+  {
+    "id": "tc06_followup_replay_value",
+    "history": [
+      {"role": "user", "content": "Budget $30. I like co-op survival games."},
+      {"role": "assistant", "content": "Looked at Valheim ($13.99) and Deep Rock Galactic ($9.89)."}
+    ],
+    "message": "Which of those has more replay value?",
+    "expect": {
+      "must_recommend_any_of": ["valheim", "deep_rock_galactic"]
+    }
+  },
+  {
+    "id": "tc07_factorio_full_price_skip_or_wait",
+    "message": "Should I buy Factorio right now? Budget $40, target $20.",
+    "expect": {
+      "must_recommend_any_of": ["factorio"],
+      "expected_verdict_for": {"factorio": "Wait"}
+    }
+  },
+  {
+    "id": "tc08_at_historical_low",
+    "message": "Stardew Valley is $7.49 right now. Budget $20, I like farming and indie. Worth it?",
+    "expect": {
+      "must_recommend_any_of": ["stardew_valley"],
+      "expected_verdict_for": {"stardew_valley": "Buy"}
+    }
+  },
+  {
+    "id": "tc09_overbudget_should_not_buy",
+    "message": "Budget $30. I love souls-like RPGs. Should I get Elden Ring?",
+    "expect": {
+      "must_recommend_any_of": ["elden_ring"],
+      "must_not_recommend_buy_above": 30.0,
+      "expected_verdict_for": {"elden_ring": "Wait"}
+    }
+  },
+  {
+    "id": "tc10_hallucination_check",
+    "message": "I love RPGs and I have $50. Recommend something good.",
+    "expect": {
+      "must_only_recommend_from_catalog": true
+    }
+  },
+  {
+    "id": "tc11_metroidvania_match",
+    "message": "Budget $15. I love metroidvania games like Hollow Knight.",
+    "expect": {
+      "must_recommend_any_of": ["hollow_knight", "dead_cells"],
+      "max_price_for_buy": 15.0
+    }
+  },
+  {
+    "id": "tc12_high_budget_open_world",
+    "message": "I have $60 and want an open-world RPG with great reviews.",
+    "expect": {
+      "must_recommend_any_of": ["the_witcher_3", "elden_ring", "cyberpunk_2077", "baldurs_gate_3"],
+      "must_only_recommend_from_catalog": true
+    }
+  }
+]

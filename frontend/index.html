@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steam Deal Assistant</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>🎮 Steam Deal Assistant</h1>
+    <p class="tagline">Tell me your budget and what you like. I'll tell you whether to buy, wait, or skip.</p>
+  </header>
+
+  <main>
+    <section id="chat" class="chat" aria-live="polite"></section>
+
+    <form id="chat-form" autocomplete="off">
+      <label for="message" class="sr-only">Message</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="3"
+        placeholder="e.g. I have $20 and I love co-op shooters. I already own Apex Legends."
+        required
+      ></textarea>
+      <button id="send" type="submit">Ask</button>
+    </form>
+
+    <p id="status" class="status" role="status"></p>
+    <p id="error" class="error" role="alert" hidden></p>
+  </main>
+
+  <footer>
+    <small>CPSC 254 Final Project · William Wang · OpenAI-powered, local catalog</small>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
