@@ -26,12 +26,16 @@ CPSC 254 Final Project · William Wang.
 
 ## Requirements
 
-- **Python 3.11+**
+- **Python 3.11+** (the grader environment uses Python 3.11+ on macOS)
 - **macOS** (the grader environment) or Windows / Linux for development
 - An **OpenAI API key**
 
 No other API keys, no hosted databases, no cloud services. The catalog and
 price history are checked-in JSON files in `data/`.
+
+> **Windows note:** if `python --version` shows 3.10 or older, install
+> Python 3.11+ from <https://www.python.org/downloads/> and use that
+> interpreter (`py -3.11 -m venv .venv`) when creating the virtual environment.
 
 ---
 
@@ -46,18 +50,49 @@ price history are checked-in JSON files in `data/`.
 
 2. Create a virtual environment and install dependencies.
 
+   **macOS / Linux:**
+
    ```bash
    python3 -m venv .venv
-   source .venv/bin/activate          # Windows: .venv\Scripts\activate
+   source .venv/bin/activate
    pip install -r requirements.txt
    ```
 
+   **Windows (PowerShell):**
+
+   ```powershell
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+   ```
+
+   **Windows (cmd):**
+
+   ```cmd
+   python -m venv .venv
+   .venv\Scripts\activate.bat
+   pip install -r requirements.txt
+   ```
+
+   > If PowerShell blocks `Activate.ps1` with an execution-policy error, run
+   > `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` once in that
+   > terminal and try again.
+
 3. Create your `.env` from the template and add your key.
 
+   **macOS / Linux:**
+
    ```bash
-   cp .env.example .env               # Windows: copy .env.example .env
-   # then open .env and paste your OPENAI_API_KEY
+   cp .env.example .env
    ```
+
+   **Windows:**
+
+   ```powershell
+   copy .env.example .env
+   ```
+
+   Then open `.env` and paste your `OPENAI_API_KEY`.
 
 ---
 
