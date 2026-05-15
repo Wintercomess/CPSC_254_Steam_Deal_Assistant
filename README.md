@@ -60,10 +60,16 @@ price history are checked-in JSON files in `data/`.
 
    **Windows (PowerShell):**
 
+   
    ```powershell
    python -m venv .venv
    .\.venv\Scripts\Activate.ps1
    pip install -r requirements.txt
+   ```
+   If PowerShell blocks virtual environment activation, run this command first:
+
+   ```powershell
+   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
    ```
 
    **Windows (cmd):**
@@ -185,10 +191,3 @@ are also reported separately so iteration deltas are easy to read.
 ```
 
 ---
-
-## Notes for graders
-
-- The grader-supplied `.env` only needs `OPENAI_API_KEY`. Nothing else.
-- All catalog data lives in `data/` and is committed to the repo.
-- The default model is `gpt-4o-mini`. To override during eval, set
-  `OPENAI_MODEL` in your environment before running `python -m eval.run_eval`.
