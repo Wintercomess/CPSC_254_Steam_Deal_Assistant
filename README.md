@@ -20,8 +20,6 @@ recommend games outside the catalog, mark over-budget games as Buy, or omit
 price/genre/user-fit reasoning. On a violation, the pipeline retries stage 3
 once with the violation message attached.
 
-CPSC 254 Final Project · William Wang.
-
 ---
 
 ## Requirements
@@ -45,7 +43,7 @@ price history are checked-in JSON files in `data/`.
 
    ```bash
    git clone <this-repo-url>
-   cd CPSC-254-Final-Project
+   cd CPSC_254_Steam_Deal_Assistant
    ```
 
 2. Create a virtual environment and install dependencies.
